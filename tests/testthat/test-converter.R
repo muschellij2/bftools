@@ -1,4 +1,4 @@
-context("Just simple tryout")
+testthat::context("Just simple tryout")
 
 
 testthat::test_that("Just trying a simple convert", {
