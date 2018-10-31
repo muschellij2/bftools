@@ -1,0 +1,22 @@
+
+[![Travis build
+status](https://travis-ci.com/muschellij2/bftools.svg?branch=master)](https://travis-ci.com/muschellij2/bftools)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/bftools?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/bftools)
+[![Coverage
+status](https://codecov.io/gh/muschellij2/bftools/branch/master/graph/badge.svg)](https://codecov.io/gh/muschellij2/bftools)
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# bftools Package:
+
+The goal of `bftools` is to provide wrapper for command line tools for
+Bio-Formats <https://www.openmicroscopy.org/bio-formats/downloads/>.
+
+## Installation
+
+You can install `bftools` from GitHub with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("muschellij2/bftools")
+```

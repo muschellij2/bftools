@@ -1,0 +1,2 @@
+rm -rf bftools.zip
+rm -rf inst/bftools

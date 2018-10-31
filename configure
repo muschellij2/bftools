@@ -1,0 +1,4 @@
+#!/bin/bash
+wget http://downloads.openmicroscopy.org/bio-formats/5.9.2/artifacts/bftools.zip
+${R_HOME}/bin/Rscript -e "unzip('bftools.zip', exdir='inst')"
+chmod +x inst/bftools/*
