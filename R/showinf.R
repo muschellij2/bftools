@@ -87,6 +87,7 @@ showinf = function(
       warning("Result was not zero!")
     }
     class(outfile) = "showinf_result"
+    attr(outfile, "result") = res
     return(outfile)
   } else {
     return(cmd)

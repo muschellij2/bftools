@@ -1,7 +1,7 @@
 Type: Package
 Package: bftools
 Title: BioFormats Tools
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "John",
            family = "Muschelli",
@@ -11,6 +11,9 @@ Authors@R:
 Description: Wrapper for command line tools for Bio-Formats
     <https://www.openmicroscopy.org/bio-formats/downloads/>.
 License: GPL-3
+Imports:
+    dplyr,
+    tidyr
 Suggests: 
     covr,
     png,
