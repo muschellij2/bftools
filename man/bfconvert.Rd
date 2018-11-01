@@ -2,6 +2,8 @@
 % Please edit documentation in R/bfconvert.R
 \name{bfconvert}
 \alias{bfconvert}
+\alias{bf_convert}
+\alias{bfconvert_version}
 \title{Convert Bio-Format}
 \usage{
 bfconvert(file, outfile = tempfile(fileext = ".tiff"), series = NULL,
@@ -9,6 +11,14 @@ bfconvert(file, outfile = tempfile(fileext = ".tiff"), series = NULL,
   tilex = NULL, tiley = tilex, crop = NULL, compression = NULL,
   overwrite = TRUE, lookup = TRUE, bigtiff = FALSE, opts = "",
   verbose = TRUE, run = TRUE)
+
+bf_convert(file, outfile = tempfile(fileext = ".tiff"), series = NULL,
+  timepoint = NULL, channel = NULL, z = NULL, range = NULL,
+  tilex = NULL, tiley = tilex, crop = NULL, compression = NULL,
+  overwrite = TRUE, lookup = TRUE, bigtiff = FALSE, opts = "",
+  verbose = TRUE, run = TRUE)
+
+bfconvert_version()
 }
 \arguments{
 \item{file}{File to Convert}

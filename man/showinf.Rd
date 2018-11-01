@@ -4,6 +4,7 @@
 \alias{showinf}
 \alias{bf_showinf}
 \alias{bf_show_info}
+\alias{showinf_version}
 \title{Displaying images and metadata}
 \usage{
 showinf(file, pixel_data = FALSE, series = NULL, range = NULL,
@@ -17,6 +18,8 @@ bf_showinf(file, pixel_data = FALSE, series = NULL, range = NULL,
 bf_show_info(file, pixel_data = FALSE, series = NULL, range = NULL,
   crop = NULL, autoscale = FALSE, opts = c("-no-upgrade",
   "-novalid"), debug = FALSE, verbose = TRUE, run = TRUE)
+
+showinf_version()
 }
 \arguments{
 \item{file}{File to display}

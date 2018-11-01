@@ -112,3 +112,21 @@ bfconvert = function(
   }
 
 }
+
+#' @rdname bfconvert
+#' @export
+bf_convert = bfconvert
+
+#' @rdname bfconvert
+#' @export
+bfconvert_version = function() {
+  cmd = bf_cmd("bfconvert")
+  outfile = tempfile(fileext = ".txt")
+  cmd = paste(cmd, "-version >", outfile)
+  res = system(cmd)
+
+  if (res != 0) {
+    warning("Result was not zero!")
+  }
+  return( readLines(outfile))
+}
