@@ -50,7 +50,8 @@ process_core_data = function(data) {
 #' testthat::expect_equal(parsed2$core, parsed$core)
 #' testthat::expect_equal(parsed2$`series #0`, parsed$`series #0`)
 #' }
-#' @importFrom dplyr mutate filter select
+#' @importFrom zoo na.locf
+#' @importFrom dplyr mutate filter select %>%
 #' @importFrom tidyr separate spread gather
 bf_parse_show_info = function(file) {
   if (length(file) == 1 & file.exists(file)

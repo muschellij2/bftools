@@ -1,6 +1,10 @@
 #' Displaying images and metadata
 #'
 #' @param file File to display
+#' @param pixel_data Should the image/pixel data be read in?
+#' If \code{FALSE}, the \code{-nopix} is passed.
+#' @param range To convert images between certain indices (inclusive),
+#' set 0 to first
 #' @param series All images in the input file are converted by default.
 #' To convert only one series, set this to a numeric
 #' @param crop of the format x,y,width,height. The (x, y) coordinate

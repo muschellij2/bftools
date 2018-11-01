@@ -21,8 +21,14 @@ bf_show_info(file, pixel_data = FALSE, series = NULL, range = NULL,
 \arguments{
 \item{file}{File to display}
 
+\item{pixel_data}{Should the image/pixel data be read in?
+If \code{FALSE}, the \code{-nopix} is passed.}
+
 \item{series}{All images in the input file are converted by default.
 To convert only one series, set this to a numeric}
+
+\item{range}{To convert images between certain indices (inclusive),
+set 0 to first}
 
 \item{crop}{of the format x,y,width,height. The (x, y) coordinate
 (0, 0) is the upper-left corner of the image;

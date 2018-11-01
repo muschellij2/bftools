@@ -13,7 +13,8 @@ Description: Wrapper for command line tools for Bio-Formats
 License: GPL-3
 Imports:
     dplyr,
-    tidyr
+    tidyr,
+    zoo
 Suggests: 
     covr,
     png,
