@@ -1,4 +1,8 @@
 process_core_data = function(data) {
+  info = item = number = series = series_number = value = x = NULL
+  rm(list = c("info", "item", "number", "series",
+              "series_number", "value", "x"))
+
   df = data.frame(x = data$core, stringsAsFactors = FALSE)
   df = df %>%
     mutate(series = grepl("Series [#]", df$x),
@@ -54,6 +58,10 @@ process_core_data = function(data) {
 #' @importFrom dplyr mutate filter select %>%
 #' @importFrom tidyr separate spread gather
 bf_parse_show_info = function(file) {
+  info = item = number = series = series_number = value = x = NULL
+  rm(list = c("info", "item", "number", "series",
+              "series_number", "value", "x"))
+
   if (length(file) == 1 & file.exists(file)
       & !inherits(file, "showinf_result")) {
     tryout = showinf(file)
