@@ -104,29 +104,31 @@ bf_parse_show_info = function(file) {
 
   data$core = process_core_data(data)
   series = grepl("series", names(data) )
-  y = data[series][[1]]
-  out_series = lapply(data[series], function(y) {
-    y = y[ y != "" ]
-    y = y[ !grepl("^Location.mapFile", y)]
-    ss = strsplit(y, split = "|", fixed = TRUE)
-    ss = sapply(ss, trimws)
-    if (is.matrix(ss)) {
-      ss = t(ss)
-      if (ncol(ss) == 3) {
-        colnames(ss) = c("type", "series", "info")
-        ss = as.data.frame(ss, stringsAsFactors = FALSE)
-        ss = ss %>% separate(info, into = c("number", "value"),
-                             sep = ":") %>%
-          mutate(number = sub("#", "", number, fixed = TRUE),
-                 value = trimws(value),
-                 number = trimws(value),
-                 series = sub("Series", "", series),
-                 series = trimws(series))
+  if (any(series)) {
+    y = data[series][[1]]
+    out_series = lapply(data[series], function(y) {
+      y = y[ y != "" ]
+      y = y[ !grepl("^Location.mapFile", y)]
+      ss = strsplit(y, split = "|", fixed = TRUE)
+      ss = sapply(ss, trimws)
+      if (is.matrix(ss)) {
+        ss = t(ss)
+        if (ncol(ss) == 3) {
+          colnames(ss) = c("type", "series", "info")
+          ss = as.data.frame(ss, stringsAsFactors = FALSE)
+          ss = ss %>% separate(info, into = c("number", "value"),
+                               sep = ":") %>%
+            mutate(number = sub("#", "", number, fixed = TRUE),
+                   value = trimws(value),
+                   number = trimws(value),
+                   series = sub("Series", "", series),
+                   series = trimws(series))
+        }
       }
-    }
-    return(ss)
-  })
-  data[series] = out_series
+      return(ss)
+    })
+    data[series] = out_series
+  }
   return(data)
 }
 
