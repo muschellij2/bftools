@@ -26,4 +26,4 @@ LazyData: true
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/bftools
 BugReports: https://github.com/muschellij2/bftools/issues
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
