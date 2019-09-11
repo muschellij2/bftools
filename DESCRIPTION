@@ -1,7 +1,7 @@
 Type: Package
 Package: bftools
 Title: BioFormats Tools
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: 
     person(given = "John",
            family = "Muschelli",
@@ -14,7 +14,8 @@ License: GPL-3
 Imports:
     dplyr,
     tidyr,
-    zoo
+    zoo,
+    xml2
 Suggests: 
     covr,
     png,

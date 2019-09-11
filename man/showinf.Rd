@@ -6,6 +6,7 @@
 \alias{bf_showinf}
 \alias{bf_show_info}
 \alias{showinf_version}
+\alias{bf_meta_subset}
 \title{Displaying images and metadata}
 \usage{
 showinf(file, pixel_data = FALSE, series = NULL, range = NULL,
@@ -26,6 +27,8 @@ bf_show_info(file, pixel_data = FALSE, series = NULL, range = NULL,
   run = TRUE)
 
 showinf_version()
+
+bf_meta_subset(file)
 }
 \arguments{
 \item{file}{File to display}

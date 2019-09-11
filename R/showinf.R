@@ -137,3 +137,23 @@ showinf_version = function() {
   return( readLines(outfile))
 }
 
+#' @rdname showinf
+#' @importFrom xml2 read_xml xml_ns_strip as_list
+#' @export
+bf_meta_subset = function(file) {
+  x = showinf(file, ome_xml = TRUE)
+  doc = xml2::read_xml(as.character(x))
+  xml2::xml_ns_strip(doc)
+  l = xml2::as_list(doc)
+  l = l$OME
+  channel = attributes(l$Image$Pixels$Channel)
+  inst = attributes(l$Instrument$Objective)
+  lp = l$Image$Pixels
+  lp = lp[names(lp) %in% "Plane"]
+  info = sapply(lp, function(x) unlist(attributes(x)))
+  L = list(
+    image_info = info,
+    instrument = inst,
+    channel = channel)
+  return(L)
+}
