@@ -17,6 +17,7 @@
 #' @param run  Should the command be run?  Useful for diagnostics.
 #' @param autoscale Adjusts the display range to the
 #' minimum and maximum pixel values.
+#' @param ome_xml should this populate OME-XML metadata
 #'
 #' @return The output file name
 #' @export
@@ -34,6 +35,7 @@ showinf = function(
   range = NULL,
   crop = NULL,
   autoscale = FALSE,
+  ome_xml = FALSE,
   opts = c("-no-upgrade", "-novalid"),
   debug = FALSE,
   verbose = TRUE,
@@ -72,7 +74,9 @@ showinf = function(
   }
   if (autoscale) {
     opts = c(opts, "-autoscale")
-
+  }
+  if (ome_xml) {
+    opts = c(opts, "-omexml")
   }
   opts = opts[ opts != "" ]
   opts = paste(opts, collapse = " ")
@@ -92,11 +96,22 @@ showinf = function(
     }
     class(outfile) = "showinf_result"
     attr(outfile, "result") = res
+    attr(outfile, "ome_xml") = ome_xml
     return(outfile)
   } else {
     return(cmd)
   }
 
+}
+
+#' @export
+#' @rdname showinf
+showinf.help = function() {
+  cmd = bf_cmd("showinf")
+  suppressWarnings({
+    res = system(cmd, intern = TRUE, ignore.stderr = TRUE)
+  })
+  cat(res, sep = "\n")
 }
 
 #' @export
@@ -121,3 +136,4 @@ showinf_version = function() {
   }
   return( readLines(outfile))
 }
+

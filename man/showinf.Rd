@@ -2,22 +2,28 @@
 % Please edit documentation in R/showinf.R
 \name{showinf}
 \alias{showinf}
+\alias{showinf.help}
 \alias{bf_showinf}
 \alias{bf_show_info}
 \alias{showinf_version}
 \title{Displaying images and metadata}
 \usage{
 showinf(file, pixel_data = FALSE, series = NULL, range = NULL,
-  crop = NULL, autoscale = FALSE, opts = c("-no-upgrade",
-  "-novalid"), debug = FALSE, verbose = TRUE, run = TRUE)
+  crop = NULL, autoscale = FALSE, ome_xml = FALSE,
+  opts = c("-no-upgrade", "-novalid"), debug = FALSE, verbose = TRUE,
+  run = TRUE)
+
+showinf.help()
 
 bf_showinf(file, pixel_data = FALSE, series = NULL, range = NULL,
-  crop = NULL, autoscale = FALSE, opts = c("-no-upgrade",
-  "-novalid"), debug = FALSE, verbose = TRUE, run = TRUE)
+  crop = NULL, autoscale = FALSE, ome_xml = FALSE,
+  opts = c("-no-upgrade", "-novalid"), debug = FALSE, verbose = TRUE,
+  run = TRUE)
 
 bf_show_info(file, pixel_data = FALSE, series = NULL, range = NULL,
-  crop = NULL, autoscale = FALSE, opts = c("-no-upgrade",
-  "-novalid"), debug = FALSE, verbose = TRUE, run = TRUE)
+  crop = NULL, autoscale = FALSE, ome_xml = FALSE,
+  opts = c("-no-upgrade", "-novalid"), debug = FALSE, verbose = TRUE,
+  run = TRUE)
 
 showinf_version()
 }
@@ -40,6 +46,8 @@ and y + height must be less than or equal to the image height.}
 
 \item{autoscale}{Adjusts the display range to the
 minimum and maximum pixel values.}
+
+\item{ome_xml}{should this populate OME-XML metadata}
 
 \item{opts}{Additional options to pass to \code{showinf}}
 
