@@ -76,7 +76,7 @@ showinf = function(
     opts = c(opts, "-autoscale")
   }
   if (ome_xml) {
-    opts = c(opts, "-omexml")
+    opts = c(opts, "-omexml-only")
   }
   opts = opts[ opts != "" ]
   opts = paste(opts, collapse = " ")
