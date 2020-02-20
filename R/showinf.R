@@ -60,7 +60,7 @@ showinf = function(
     names(L) =  paste0("-", names(L))
     L = mapply(function(name, value) {
       collapser = " "
-      if (name == "crop") {
+      if (name == "-crop") {
         collapser = ","
       }
       value = paste(value, collapse = collapser)

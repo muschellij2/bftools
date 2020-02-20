@@ -80,7 +80,11 @@ bfconvert = function(
   if (length(L) > 0) {
     names(L) =  paste0("-", names(L))
     L = mapply(function(name, value) {
-      value = paste(value, collapse = " ")
+      collapser = " "
+      if (name == "-crop") {
+        collapser = ","
+      }
+      value = paste(value, collapse = collapser)
       paste(name, value)
     }, names(L), L, SIMPLIFY = TRUE)
     opts = c(opts, L)

@@ -13,7 +13,11 @@ if (!file.exists(destfile)) {
 }
 testthat::test_that("showinf", {
 
-  res = showinf(destfile, range = c(0, 5))
+  res = showinf(destfile, range = c(0, 5), crop = "0,0,10,10")
+  testthat::expect_equal(attr(res, "result") , 0)
+
+  res = showinf(destfile, range = c(0, 5), crop = c(0, 0, 10, 10))
+  testthat::expect_equal(attr(res, "result") , 0)
   testthat::expect_is(res, "showinf_result")
 
   res = showinf(destfile)
@@ -22,6 +26,8 @@ testthat::test_that("showinf", {
   out = bf_parse_show_info(res)
   testthat::expect_named(out, c("other", "core", "global", ""))
   testthat::expect_equal(as.numeric(out$core$series_number), 0)
+
+  out = bf_parse_show_info(destfile)
 
   res = showinf(destfile, ome_xml = TRUE)
   doc = xml2::read_xml(as.character(res))
@@ -48,6 +54,14 @@ testthat::test_that("bfconvert_version", {
     tif = tiff::readTIFF(res)
     testthat::expect_equal(dim(tif), c(512L, 512L))
     testthat::expect_equal(mean(tif), 0.00407575719496783)
+  }
+
+  res = bfconvert(destfile, crop = c(0, 0, 10, 10))
+  testthat::expect_equal( tools::file_ext(res), "tiff")
+  if (requireNamespace("tiff", quietly = TRUE)) {
+    tif = tiff::readTIFF(res)
+    testthat::expect_equal(dim(tif), c(10L, 10L, 3L))
+    testthat::expect_equal(sum(tif), 0.0117189288166629)
   }
 
 })
