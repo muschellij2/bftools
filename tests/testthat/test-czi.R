@@ -5,6 +5,7 @@ testthat::context("Downloading CZI")
 # https://forum.image.sc/t/fiji-bioformat-importer-does-not-automatically-adjust-physical-size-for-different-resolutions/5655/4
 # url = 'https://cloud.mpi-cbg.de/index.php/s/5ssfA6v2F5OMhk8/download'
 
+options(digits = 10)
 # from https://figshare.com/articles/Fluorescence_microscopy_of_Chlamydomonas_reinhardtii_for_mCherry_detection_secretion_peptides_strains_/9114647/1
 url = "https://ndownloader.figshare.com/files/16618418"
 destfile = file.path(tempdir(), "pJP28mCherry.czi")
