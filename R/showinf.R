@@ -125,6 +125,8 @@ bf_show_info = showinf
 
 #' @rdname showinf
 #' @export
+#' @examples
+#' showinf_version()
 showinf_version = function() {
   cmd = bf_cmd("showinf")
   outfile = tempfile(fileext = ".txt")
