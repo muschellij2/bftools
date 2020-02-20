@@ -47,7 +47,7 @@ testthat::test_that("bfconvert_version", {
   if (requireNamespace("tiff", quietly = TRUE)) {
     tif = tiff::readTIFF(res)
     testthat::expect_equal(dim(tif), c(512L, 512L))
-    testthat::expect_equa(mean(tif), 0.00407575719496783)
+    testthat::expect_equal(mean(tif), 0.00407575719496783)
   }
 
 })
