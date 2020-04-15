@@ -6,3 +6,6 @@
 ^bftools\.Rproj$
 ^\.Rproj\.user$
 ^.*\.Rproj$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

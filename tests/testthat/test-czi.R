@@ -13,8 +13,10 @@ if (!file.exists(destfile)) {
   download.file(url, destfile = destfile)
 }
 testthat::test_that("showinf", {
+  showinf.help()
 
-  res = showinf(destfile, range = c(0, 5), crop = "0,0,10,10")
+  res = showinf(destfile, range = c(0, 5), crop = "0,0,10,10",
+                autoscale = TRUE, debug = TRUE)
   testthat::expect_equal(attr(res, "result") , 0)
 
   res = showinf(destfile, range = c(0, 5), crop = c(0, 0, 10, 10))
@@ -58,6 +60,9 @@ testthat::test_that("bfconvert_version", {
   }
 
   res = bfconvert(destfile, crop = c(0, 0, 10, 10))
+  testthat::expect_error({
+    bfconvert(destfile, outfile = as.character(res), overwrite = FALSE)
+  })
   testthat::expect_equal( tools::file_ext(res), "tiff")
   if (requireNamespace("tiff", quietly = TRUE)) {
     tif = tiff::readTIFF(res)
