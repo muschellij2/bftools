@@ -54,9 +54,10 @@ testthat::test_that("bfconvert_version", {
                   compression = "LZW", lookup = FALSE)
   testthat::expect_equal( tools::file_ext(res), "tiff")
   if (requireNamespace("tiff", quietly = TRUE)) {
-    tif = tiff::readTIFF(res)
+    tif = tiff::readTIFF(res, as.is = TRUE)
     testthat::expect_equal(dim(tif), c(512L, 512L))
-    testthat::expect_equal(mean(tif), 0.00407575719496783)
+    testthat::expect_equal(sum(tif), 272451L)
+    testthat::expect_equal(mean(tif), 1.0393180847168)
   }
 
   res = bfconvert(destfile, crop = c(0, 0, 10, 10))
@@ -65,9 +66,9 @@ testthat::test_that("bfconvert_version", {
   })
   testthat::expect_equal( tools::file_ext(res), "tiff")
   if (requireNamespace("tiff", quietly = TRUE)) {
-    tif = tiff::readTIFF(res)
+    tif = tiff::readTIFF(res, as.is = TRUE)
     testthat::expect_equal(dim(tif), c(10L, 10L, 3L))
-    testthat::expect_equal(sum(tif), 0.0117189288166629)
+    testthat::expect_equal(sum(tif), 768L)
   }
 
 })
