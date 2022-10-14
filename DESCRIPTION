@@ -1,7 +1,7 @@
 Type: Package
 Package: bftools
 Title: BioFormats Tools
-Version: 0.2.3.3
+Version: 0.3.0
 Authors@R: 
     person(given = "John",
            family = "Muschelli",

@@ -1,4 +1,4 @@
 #!/bin/bash
-${R_HOME}/bin${R_ARCH_BIN}/R.exe -e "download.file('https://downloads.openmicroscopy.org/bio-formats/6.5.0/artifacts/bftools.zip', destfile = 'bftools.zip')"
+${R_HOME}/bin${R_ARCH_BIN}/R.exe -e "download.file('https://downloads.openmicroscopy.org/bio-formats/6.11.0/artifacts/bftools.zip', mode = 'wb', destfile = 'bftools.zip')"
 ${R_HOME}/bin${R_ARCH_BIN}/R.exe -e "unzip('bftools.zip', exdir='inst')"
 chmod +x inst/bftools/*
