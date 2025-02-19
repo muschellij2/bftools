@@ -1,7 +1,7 @@
 Type: Package
 Package: bftools
 Title: BioFormats Tools
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     person(given = "John",
            family = "Muschelli",
@@ -28,4 +28,4 @@ LazyData: true
 VignetteBuilder: knitr
 URL: https://github.com/muschellij2/bftools
 BugReports: https://github.com/muschellij2/bftools/issues
-RoxygenNote: 7.1.0
+RoxygenNote: 7.3.2

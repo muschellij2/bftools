@@ -7,7 +7,8 @@ testthat::context("Downloading CZI")
 
 options(digits = 10)
 # from https://figshare.com/articles/Fluorescence_microscopy_of_Chlamydomonas_reinhardtii_for_mCherry_detection_secretion_peptides_strains_/9114647/1
-url = "https://ndownloader.figshare.com/files/16618418"
+#url = "https://ndownloader.figshare.com/files/16618418"
+url= "https://zenodo.org/records/579617/files/pJP28mCherry.czi?download=1"
 destfile = file.path(tempdir(), "pJP28mCherry.czi")
 if (!file.exists(destfile)) {
   download.file(url, destfile = destfile)
